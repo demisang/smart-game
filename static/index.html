@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Smart Game</title>
+    <meta name="description" content="Smart Game Solver">
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="/js/vue.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <div class="row">
+            <div class="col">{{ message }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <table id="cells" class="table table-bordered">
+                    <tr v-for="columns in board.cells">
+                        <td v-for="row in columns" :class="{'active': selectedFigure == row }"
+                            :data-figure-id="row"
+                            v-on:click="selectFigure"
+                            :style="{ 'background-color': board.colors[row].HEX }">{{ row }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4 navigate-buttons">
+                <button id="moveUp" v-on:click="moveFigure" class="btn btn-success">UP</button>
+                <div class="row">
+                    <div class="col">
+                        <button id="moveLeft" v-on:click="moveFigure" class="btn btn-success">LEFT</button>
+                    </div>
+                    <div class="col">
+                        <button id="moveRight" v-on:click="moveFigure" class="btn btn-success">RIGHT</button>
+                    </div>
+                </div>
+                <button id="moveDown" v-on:click="moveFigure" class="btn btn-success">DOWN</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery-3.4.1.slim.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/axios.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

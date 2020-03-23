@@ -1,0 +1,7 @@
+#cells td.active {
+    border: 3px solid #000000;
+}
+
+.navigate-buttons {
+    text-align: center;
+}
