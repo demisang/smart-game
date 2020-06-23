@@ -1,17 +1,13 @@
 package game
 
-import (
-	"fmt"
-)
-
 type Figure struct {
+	BoardX        int8
+	BoardY        int8
 	SquareSize    int8
 	Cells         [4][4]int8
 	TypeId        int8
 	Color         FigureColor
 	isInitialized bool
-	StartX        int8
-	StartY        int8
 	FilledCells   [4][4]int8
 }
 
@@ -28,7 +24,7 @@ func (f *Figure) Init() {
 		f.SquareSize = 4
 	}
 
-	// invert X and Y (because cells filled by human!)
+	// invert BoardX and BoardY (because cells filled by human!)
 	newCells := [4][4]int8{}
 	for x := int8(0); x < f.SquareSize; x++ {
 		for y := int8(0); y < f.SquareSize; y++ {
@@ -45,7 +41,6 @@ func (f *Figure) Init() {
 func (f *Figure) FlipHorizontal() {
 	f.Init()
 
-	fmt.Println(f.Cells)
 	for x := int8(0); x < f.SquareSize/2; x++ {
 		for y := int8(0); y < f.SquareSize; y++ {
 			// opposite cell coordinates
@@ -83,7 +78,6 @@ func (f *Figure) Rotate(rotation int8, toLeft bool) {
 		return
 	}
 
-	fmt.Println(f.Cells)
 	for x := int8(0); x < f.SquareSize/2; x++ {
 		Nx := f.SquareSize - 1 - x
 		for y := x; y < Nx; y++ {
@@ -104,7 +98,6 @@ func (f *Figure) Rotate(rotation int8, toLeft bool) {
 			}
 		}
 	}
-	fmt.Println(f.Cells)
 
 	f.Rotate(rotation-1, toLeft)
 }

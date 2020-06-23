@@ -36,10 +36,25 @@
                         <button id="moveLeft" v-on:click="moveFigure" class="btn btn-success">LEFT</button>
                     </div>
                     <div class="col">
+
+                    </div>
+                    <div class="col">
                         <button id="moveRight" v-on:click="moveFigure" class="btn btn-success">RIGHT</button>
                     </div>
                 </div>
+
                 <button id="moveDown" v-on:click="moveFigure" class="btn btn-success">DOWN</button>
+
+                <div class="row">
+                    <div class="col">
+                        <button id="rotate" v-on:click="moveFigure" class="btn btn-danger">ROTATE</button>
+                    </div>
+                    <div class="col">
+                        <button id="flip" v-on:click="moveFigure" class="btn btn-info">FLIP</button>
+                    </div>
+                </div>
+
+                <button id="solveBoard" class="btn btn-primary">SOLVE</button>
             </div>
         </div>
     </div>
